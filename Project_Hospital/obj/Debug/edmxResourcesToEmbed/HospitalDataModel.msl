@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalDatabaseModelStoreContainer" CdmEntityContainer="HospitalDatabaseEntities">
+    <EntitySetMapping Name="Doctors">
+      <EntityTypeMapping TypeName="HospitalDatabaseModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="office" ColumnName="office" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="HospitalDatabaseModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="office" ColumnName="office" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="dateOfbirth" ColumnName="dateOfbirth" />
+          <ScalarProperty Name="doctorid" ColumnName="doctorid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visits">
+      <EntityTypeMapping TypeName="HospitalDatabaseModel.Visit">
+        <MappingFragment StoreEntitySet="Visits">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="doctorid" ColumnName="doctorid" />
+          <ScalarProperty Name="patientid" ColumnName="patientid" />
+          <ScalarProperty Name="dateOfvisit" ColumnName="dateOfvisit" />
+          <ScalarProperty Name="complaint" ColumnName="complaint" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

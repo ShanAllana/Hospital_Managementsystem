@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="1500" />
+    <Property Name="office" Type="varchar" MaxLength="1500" />
+    <Property Name="email" Type="varchar" MaxLength="1500" />
+    <Property Name="telephone" Type="varchar" MaxLength="15" />
+    <Property Name="address" Type="varchar" MaxLength="1500" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="1500" />
+    <Property Name="office" Type="varchar" MaxLength="1500" />
+    <Property Name="email" Type="varchar" MaxLength="1500" />
+    <Property Name="address" Type="varchar" MaxLength="1500" />
+    <Property Name="telephone" Type="varchar" MaxLength="15" />
+    <Property Name="dateOfbirth" Type="datetime" />
+    <Property Name="doctorid" Type="int" />
+  </EntityType>
+  <EntityType Name="Visits">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doctorid" Type="int" />
+    <Property Name="patientid" Type="int" />
+    <Property Name="dateOfvisit" Type="datetime" />
+    <Property Name="complaint" Type="varchar" MaxLength="1500" />
+  </EntityType>
+  <EntityContainer Name="HospitalDatabaseModelStoreContainer">
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visits" EntityType="Self.Visits" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

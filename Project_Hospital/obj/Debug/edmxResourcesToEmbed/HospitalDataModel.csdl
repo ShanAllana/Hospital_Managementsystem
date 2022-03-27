@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="office" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="office" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="dateOfbirth" Type="DateTime" Precision="3" />
+    <Property Name="doctorid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doctorid" Type="Int32" />
+    <Property Name="patientid" Type="Int32" />
+    <Property Name="dateOfvisit" Type="DateTime" Precision="3" />
+    <Property Name="complaint" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="HospitalDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Visits" EntityType="Self.Visit" />
+  </EntityContainer>
+</Schema>
